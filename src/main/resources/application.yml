@@ -1,0 +1,24 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          custom-client:  # Replace 'custom-client' with your client name
+            client-id: client-id
+            provider: custom-client
+            authorization-grant-type: client_credentials
+            scope: api.read,api.write
+        provider:
+          custom-client:
+            token-uri: http://localhost:8282/oauth2/token
+
+jwt:
+  keystore:
+    location: ${keystore_path}
+    password: ${keystore_password}
+    alias: ${key_alias}
+    kid: ${kid}
+
+server:
+  port: 60001
+
